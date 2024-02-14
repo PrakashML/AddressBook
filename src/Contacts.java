@@ -16,4 +16,17 @@ public class Contacts {
         PhoneNum = phoneNum;
         Email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", Address='" + Address + '\'' +
+                ", City='" + City + '\'' +
+                ", Zip='" + Zip + '\'' +
+                ", PhoneNum='" + PhoneNum + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
+    }
 }
