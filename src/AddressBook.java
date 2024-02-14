@@ -7,7 +7,16 @@ public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
-        addContact();
+        for(int i=0; i<=10; i++) {
+            System.out.println("Do you want to add new contact? Enter 1 else 0");
+            int Add = sc.nextInt();
+            if (Add == 1) {
+                addContact();
+            }
+            else{
+                break;
+            }
+        }
         System.out.println("Want to edit enter 1 or for no edit enter 0");
         int toEdit = sc.nextInt();
 
