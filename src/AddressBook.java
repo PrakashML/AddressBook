@@ -24,8 +24,23 @@ public class AddressBook {
         else {
             System.out.println("No changes done in Contact Data");
         }
+
+        System.out.println("If you want to delete enter 1 else 0");
+        Scanner scanner3 = new Scanner(System.in);
+        int toDelete = scanner3.nextInt();
+        if (toDelete == 1){
+            deleteContact();
+        }
+        else{
+            System.out.println("No contact is deleted");
+        }
     }
 
+    private static void display(){
+        for(Contacts a : addressBook){
+            System.out.println(a);
+        }
+    }
     private static void addContact(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your details \n Firstname \n lastname \n address \n city \n zip, \n phonenum \n email \n ");
@@ -40,6 +55,7 @@ public class AddressBook {
         Contacts contact = new Contacts(FName, LName, Address, City, Zip, Num, Email);
         addressBook.add(contact);
         System.out.println("Contact added successfully");
+        display();
     }
     private static void editContact(String firstName){
         for(Contacts contact : addressBook){
@@ -58,9 +74,28 @@ public class AddressBook {
                 contact.setEmail(scanner1.nextLine());
                 System.out.println("Contact edited successfully.");
             }
-
         }
-
     }
+
+    private static void deleteContact(){
+        System.out.println("Enter the fname of the contact to delete: ");
+        Scanner scanner4 = new Scanner(System.in);
+        String ContactToDelete = scanner4.nextLine();
+
+        boolean contactFound = false;
+        for (Contacts contact : addressBook){
+            if (contact.getFirstName().equalsIgnoreCase(ContactToDelete)){
+                addressBook.remove(contact);
+                contactFound = true;
+                System.out.println("Contact deleted successfully");
+                break;
+            }
+        }
+        if (!contactFound){
+            System.out.println("Contact not found");
+        }
+        display();
+    }
+
 
 }
