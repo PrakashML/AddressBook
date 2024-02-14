@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,6 +8,7 @@ public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
+
         for(int i=0; i<=10; i++) {
             System.out.println("Do you want to add new contact? Enter 1 else 0");
             int Add = sc.nextInt();
@@ -54,6 +56,14 @@ public class AddressBook {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your details \n Firstname \n lastname \n address \n city \n zip, \n phonenum \n email \n ");
         String FName = sc.nextLine();
+
+        for(Contacts item : addressBook){
+            if(FName.equals(item.getFirstName())){
+                System.out.println("This contact is already available");
+                addContact();
+            }
+        }
+
         String LName = sc.nextLine();
         String Address = sc.nextLine();
         String City = sc.nextLine();
@@ -66,6 +76,8 @@ public class AddressBook {
         System.out.println("Contact added successfully");
         display();
     }
+
+
     private static void editContact(String firstName){
         for(Contacts contact : addressBook){
             if(contact.getFirstName().equalsIgnoreCase(firstName)){
