@@ -5,6 +5,31 @@ import java.util.Scanner;
 
 public class AddressBook {
     static List<Contacts> addressBook = new ArrayList<>();
+    private static void searchCity(){
+        Scanner scanner7 = new Scanner(System.in);
+        System.out.println("Do you want to search persons in a CITY Enter 1 else 0");
+        int cityNum = scanner7.nextInt();
+        if(cityNum == 1) {
+            System.out.println("Enter the city to get details of people in that city");
+            scanner7.nextLine();
+            String detailsOfCity = scanner7.nextLine();
+            int cityFound=0;
+            for(Contacts contact : addressBook){
+                if (contact.getCity().equalsIgnoreCase(detailsOfCity)){
+                    cityFound = 1;
+                    break;
+                }
+
+            }
+            if(cityFound == 1) {
+                addressBook.stream().filter(i -> i.getCity().equals(detailsOfCity))
+                        .forEach(System.out::println);
+            }else {
+                System.out.println("City not found");
+                searchCity();
+            }
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
@@ -45,7 +70,9 @@ public class AddressBook {
         else{
             System.out.println("No contact is deleted");
         }
+        searchCity();
     }
+
 
     private static void display(){
         for(Contacts a : addressBook){
@@ -67,8 +94,8 @@ public class AddressBook {
         String LName = sc.nextLine();
         String Address = sc.nextLine();
         String City = sc.nextLine();
-        String Zip = sc.next();
-        String Num = sc.next();
+        String Zip = sc.nextLine();
+        String Num = sc.nextLine();
         String Email = sc.nextLine();
 
         Contacts contact = new Contacts(FName, LName, Address, City, Zip, Num, Email);
@@ -76,7 +103,6 @@ public class AddressBook {
         System.out.println("Contact added successfully");
         display();
     }
-
 
     private static void editContact(String firstName){
         for(Contacts contact : addressBook){
