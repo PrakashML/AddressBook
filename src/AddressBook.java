@@ -30,6 +30,19 @@ public class AddressBook {
             }
         }
     }
+
+    private static void cityWithName(){
+        Scanner sc5 = new Scanner(System.in);
+        System.out.println("Do you want to search persons with City Enter 1 else 0");
+        int allCityNum = sc5.nextInt();
+        if(allCityNum == 1) {
+            addressBook.stream().map(i -> i.getCity() + " " + i.getFirstName() + " " + i.getLastName())
+                    .forEach(System.out::println);
+        }
+        else{
+            System.out.println("Exited from address book");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
