@@ -17,6 +17,50 @@ public class Contacts {
         Email = email;
     }
 
+    public String getFirstName(){
+        return FirstName;
+    }
+    public String getLastName(){
+        return LastName;
+    }
+    public String getAddress(){
+        return Address;
+    }
+    public String getCity(){
+        return City;
+    }
+    public String getZip(){
+        return Zip;
+    }
+    public String getPhoneNum(){
+        return PhoneNum;
+    }
+    public String getEmail(){
+        return Email;
+    }
+
+    public void setFirstName(String firstName){
+        FirstName = firstName;
+    }
+    public void setLastName(String lastName){
+        LastName = lastName;
+    }
+    public void setAddress(String address){
+        Address = address;
+    }
+    public void setCity(String city){
+        City = city;
+    }
+    public void setZip(String zip){
+        Zip = zip;
+    }
+    public void setPhoneNum(String phoneNum){
+        PhoneNum = phoneNum;
+    }
+    public void setEmail(String email){
+        Email = email;
+    }
+
     @Override
     public String toString() {
         return "Contacts{" +
